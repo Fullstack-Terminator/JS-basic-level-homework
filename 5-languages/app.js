@@ -1,8 +1,9 @@
 // Вариант 1
 
 const languages = prompt();
+const lowercaseLanguages = languages.toLowerCase();
 
-switch(languages) {
+switch(lowercaseLanguages) {
     case "en":{
         console.log("Hello");
         break;
@@ -20,17 +21,18 @@ switch(languages) {
 // Вариант 2
 
 // const languages = prompt();
+// const lowercaseLanguages = languages.toLowerCase();
 
 // switch(true) {
-//     case languages === "en":{ 
+//     case lowercaseLanguages === "en":{ 
 //         console.log("Hello");
 //         break;
 //     }
-//     case languages === "ru":{
+//     case lowercaseLanguages === "ru":{
 //         console.log("Здравствуйте");
 //         break;
 //     }
-//     case languages === "de":{
+//     case lowercaseLanguages === "de":{
 //         console.log("Gutten tag");
 //         break;
 //     }
