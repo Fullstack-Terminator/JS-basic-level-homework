@@ -4,5 +4,5 @@ const addressLat = 10;
 const addressLong = 7;
 
 
-let distance = Math.sqrt((addressLat - positionLat) * 2 + (addressLong - positionLong) * 2);
+let distance = (((addressLat - positionLat) * 2 + (addressLong - positionLong) * 2)) ** 0.5;
 console.log(`Расстояние между двумя объектами составит ${distance}.`);

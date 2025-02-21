@@ -3,15 +3,18 @@
 const languages = prompt();
 
 switch(languages) {
-    case "en":
+    case "en":{
         console.log("Hello");
         break;
-    case "ru":
+    }
+    case "ru":{
         console.log("Здравствуйте");
         break;
-    case "de":
+    }
+    case "de": {
         console.log("Gutten tag");
         break;
+    }
 }
 
 // Вариант 2
@@ -19,13 +22,16 @@ switch(languages) {
 // const languages = prompt();
 
 // switch(true) {
-//     case languages === "en":
+//     case languages === "en":{ 
 //         console.log("Hello");
 //         break;
-//     case languages === "ru":
+//     }
+//     case languages === "ru":{
 //         console.log("Здравствуйте");
 //         break;
-//     case languages === "de":
+//     }
+//     case languages === "de":{
 //         console.log("Gutten tag");
 //         break;
+//     }
 // }
