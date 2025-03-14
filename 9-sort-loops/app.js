@@ -1,17 +1,20 @@
-arr = [1, 40, -5, 10, 0];
+'use strict';
+
+const arr = [1, 40, -5, 10, 0];
+let i;
+let j;
 
 function Arrow(arr) {
-    newArr = [];
-    for (index = 0; index < arr.length - 1; index++) {
-        for (index2 = 1; index2 < arr.length; index2++) {
-            if (arr[index] > arr[index2]) {
-                newArr.push(arr[index2]);
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < arr.length; j++) {
+            if (arr[i] < arr[j]) {
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            } else {
+                continue;
             }
         }
-        newArr.push(arr[index]);
     }
-    newArr = [...new Set(newArr)];
-    console.log(newArr);
+    return arr;
 }
 
-Arrow(arr);
+console.log(Arrow(arr));
