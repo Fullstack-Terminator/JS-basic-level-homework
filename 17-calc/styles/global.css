@@ -1,0 +1,12 @@
+:root {
+    --color-form-background: rgb(92, 95, 97);
+    --color-form-shadow: rgb(57, 59, 59);
+    --color-border: rgb(39, 37, 37);
+    --color-input-shadow: rgb(214, 214, 47);
+    --color-button-hover-background: rgb(208, 212, 212);
+}
+
+body {
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
