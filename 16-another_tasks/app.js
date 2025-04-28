@@ -13,7 +13,7 @@ const ToDoList = {
             task.id = this.lastID++;
             this.tasks.push(task);
         } else {
-            console.log('Несоответствие количества свойств и их значений')
+            console.log('Несоответствие количества свойств и их значений');
         }
     },
 
@@ -27,7 +27,7 @@ const ToDoList = {
     },
 
     delTask(id) {
-        const task = this.getTaskByID(id);
+        const task = ToDoList.getTaskByID(id);
         if (task) {
             this.tasks = this.tasks.filter(task => task.id !== id);
         }
@@ -36,7 +36,7 @@ const ToDoList = {
 
     updateTask(data) {
         const {id, ...otherData} = data;
-        const task = this.getTaskByID(id);
+        const task = ToDoList.getTaskByID(id);
         if (Object.keys(otherData).length === 0) {
             return task;
         }
@@ -50,9 +50,9 @@ const ToDoList = {
     },
 };
 
-ToDoList.addTask(['title', 'priority'], ['Помыть посуду', 5]);
-ToDoList.addTask(['title', 'priority'], ['Убраться в квартире', 3]);
-ToDoList.addTask(['title', 'priority'], ['Завершить ДЗ', 1]);
+ToDoList.addTask(['title', 'priority'], ['Помыть посуду', 3]);
+ToDoList.addTask(['title', 'priority'], ['Убраться в квартире', 1]);
+ToDoList.addTask(['title', 'priority'], ['Выполнить ДЗ', 5]);
 ToDoList.delTask(3);
 ToDoList.updateTask({ title: 'Помыть кота', priority: 7, id: 1 });
 ToDoList.sortTasks('priority');
@@ -61,18 +61,18 @@ console.log(ToDoList.tasks);
 const newTask = {
     tasks: [],
     lastID: 0,
-};
+}
 
-newTask.addTask = ToDoList.addTask;
-newTask.getTaskByID = ToDoList.getTaskByID;
-newTask.delTask = ToDoList.delTask;
-newTask.updateTask = ToDoList.updateTask;
-newTask.sortTasks = ToDoList.sortTasks;
-newTask.addTask(['name', 'description', 'order'], ['Mike', 'my name is Mike', 3]);
-newTask.addTask(['name', 'description', 'order'], ['Jon', 'my name is Jon', 9]);
-newTask.addTask(['name', 'description', 'order'], ['Anna', 'my name is Anna', 7]);
-newTask.delTask(3);
-newTask.updateTask({name: 'Nikita', description: 'my name is Nikita', order: 17, id: 1});
-newTask.sortTasks('order');
+const addTaskNewTask = ToDoList.addTask.bind(newTask);
+const getTaskByIDNewTask = ToDoList.getTaskByID.bind(newTask);
+const delTaskNewTask = ToDoList.delTask.bind(newTask);
+const updateTaskNewTask = ToDoList.updateTask.bind(newTask);
+const sortTasksNewTask = ToDoList.sortTasks.bind(newTask);
 
-console.log(newTask.tasks);
+addTaskNewTask(['name', 'description', 'order'], ['Миша', 'программист', 9]);
+addTaskNewTask(['name', 'description', 'order'], ['Дима', 'слесарь', 2]);
+addTaskNewTask(['name', 'description', 'order'], ['Стас', 'инженер', 8]);
+delTaskNewTask(2);
+updateTaskNewTask({ name: 'Лена', description: 'водолаз', order: 7, id: 1 });
+sortTasksNewTask('order');
+console.log(newTask);
